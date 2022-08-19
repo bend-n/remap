@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "RemapUtilities",
 "language": "GDScript",
 "path": "res://addons/remap/RemapUtilities.gd"
+}, {
+"base": "Node",
+"class": "SaveLoadUtils",
+"language": "GDScript",
+"path": "res://addons/remap/SaveLoadUtils.gd"
 } ]
 _global_script_class_icons={
 "ActionIcons": "",
@@ -45,15 +50,16 @@ _global_script_class_icons={
 "IconMap": "",
 "InteractiveActionLabel": "",
 "KeySelector": "",
-"RemapUtilities": ""
+"RemapUtilities": "",
+"SaveLoadUtils": ""
 }
 
 [application]
 
-config/name="Godot Template"
+config/name="test"
 run/main_scene="res://Test.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="GodotTemplate"
+config/custom_user_dir_name="remap"
 
 [debug]
 
