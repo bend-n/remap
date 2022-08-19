@@ -1,0 +1,23 @@
+{
+  "name": "@bendn/remap",
+  "version": "1.0.0",
+  "description": "godot input remapping",
+  "main": "InteractiveActionLabel.gd",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bend-n/remap.git"
+  },
+  "keywords": [
+    "godot",
+    "godot-engine"
+  ],
+  "author": "bendn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bend-n/remap/issues"
+  },
+  "homepage": "https://github.com/bend-n/remap#readme"
+}

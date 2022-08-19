@@ -45,8 +45,8 @@ static func load2inputmap(action: String) -> void:
 		for e in data.actions:  # validate
 			if e is InputEvent and RemapUtilities.is_valid_action(e):
 				continue
+			push_error("Invalid action: %s" % e)
 			inputmap2file(action)  # reset if invalid
-			push_error("Invalid action: %s" % action)
 			return
 		RemapUtilities.clear_mappings(action)
 		for e in data.actions:

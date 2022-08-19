@@ -1,14 +1,7 @@
 extends Reference
 class_name RemapUtilities
 
-const invalid_actions = [
-	InputEventMouseMotion,
-	InputEventJoypadMotion,
-	InputEventScreenDrag,
-	InputEventScreenTouch,
-	InputEventMIDI,
-	InputEventMouseButton
-]
+const invalid_actions = [InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch, InputEventMIDI]
 
 
 static func clear_mappings(action: String) -> void:
