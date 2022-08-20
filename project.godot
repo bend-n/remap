@@ -24,15 +24,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/remap/IconMap.gd"
 }, {
-"base": "ActionLabel",
-"class": "InteractiveActionLabel",
-"language": "GDScript",
-"path": "res://addons/remap/InteractiveActionLabel.gd"
-}, {
 "base": "Node",
 "class": "KeySelector",
 "language": "GDScript",
 "path": "res://addons/remap/KeySelector.gd"
+}, {
+"base": "HBoxContainer",
+"class": "RemapButton",
+"language": "GDScript",
+"path": "res://addons/remap/RemapButton.gd"
 }, {
 "base": "Reference",
 "class": "RemapUtilities",
@@ -48,8 +48,8 @@ _global_script_class_icons={
 "ActionIcons": "",
 "ActionLabel": "",
 "IconMap": "",
-"InteractiveActionLabel": "",
 "KeySelector": "",
+"RemapButton": "",
 "RemapUtilities": "",
 "SaveLoadUtils": ""
 }

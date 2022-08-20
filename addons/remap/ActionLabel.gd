@@ -1,10 +1,9 @@
-tool
 extends HBoxContainer
 class_name ActionLabel
 
 export(String) var _name: String
 export(String) var action: String
-export(Vector2) var icon_size := Vector2(30, 30)
+export(Vector2) var icon_size := Vector2(20, 20)
 export(bool) var override_font := true
 
 var icons := ActionIcons.new()

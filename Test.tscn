@@ -17,7 +17,3 @@ script = ExtResource( 4 )
 _name = "   lef"
 action = "ui_left"
 icon_size = Vector2( 10, 10 )
-
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0

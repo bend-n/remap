@@ -2,7 +2,7 @@ extends HBoxContainer
 class_name ActionIcons
 
 export(String) var action: String
-export(Vector2) var size := Vector2(30, 30)
+export(Vector2) var size := Vector2(20, 20)
 export(bool) var override_font := true
 
 const font = preload("./PromptFont.tres")
