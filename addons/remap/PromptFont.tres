@@ -3,5 +3,5 @@
 [ext_resource path="res://addons/remap/PromptFont.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 20
+size = 15
 font_data = ExtResource( 1 )

@@ -4,6 +4,8 @@ class_name ActionLabel
 
 export(String) var _name: String
 export(String) var action: String
+export(Vector2) var icon_size := Vector2(30, 30)
+export(bool) var override_font := true
 
 var icons := ActionIcons.new()
 var name_label := Label.new()
@@ -21,4 +23,6 @@ func _ready() -> void:
 	add_child(spacer)
 	add_child(icons)
 	icons.action = action
+	icons.size = icon_size
+	icons.override_font = override_font
 	icons._update()

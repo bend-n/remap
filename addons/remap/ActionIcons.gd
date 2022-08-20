@@ -1,12 +1,11 @@
 extends HBoxContainer
 class_name ActionIcons
 
-var action: String
+export(String) var action: String
+export(Vector2) var size := Vector2(30, 30)
+export(bool) var override_font := true
 
-
-func _ready():
-	theme = preload("./main.theme")
-	add_constant_override("separation", 4)
+const font = preload("./PromptFont.tres")
 
 
 func _update():
@@ -18,9 +17,11 @@ func _update():
 		if icon:
 			var p: PanelContainer = PanelContainer.new()
 			var i: Label = Label.new()
+			if override_font:
+				i.add_font_override("font", font)
 			i.text = icon
 			i.align = Label.ALIGN_CENTER
 			i.valign = Label.VALIGN_CENTER
 			p.add_child(i)
 			add_child(p)
-			i.rect_min_size = Vector2(30, 30)
+			i.rect_min_size = size

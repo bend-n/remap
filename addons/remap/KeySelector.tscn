@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://addons/remap/main.theme" type="Theme" id=1]
 [ext_resource path="res://addons/remap/KeyPromptLabel.gd" type="Script" id=2]
 [ext_resource path="res://addons/remap/PromptFont.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://addons/remap/KeySelector.gd" type="Script" id=4]
@@ -15,7 +14,6 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
 color = Color( 0.160156, 0.160156, 0.160156, 0.705882 )
 
 [node name="Center" type="CenterContainer" parent="ColorRect"]
@@ -24,9 +22,9 @@ anchor_bottom = 1.0
 
 [node name="V" type="VBoxContainer" parent="ColorRect/Center"]
 margin_left = 35.0
-margin_top = 51.0
+margin_top = 53.0
 margin_right = 285.0
-margin_bottom = 129.0
+margin_bottom = 126.0
 
 [node name="KeyPrompter" type="Label" parent="ColorRect/Center/V"]
 unique_name_in_owner = true
@@ -41,12 +39,12 @@ script = ExtResource( 2 )
 [node name="H" type="HBoxContainer" parent="ColorRect/Center/V"]
 margin_top = 53.0
 margin_right = 250.0
-margin_bottom = 78.0
+margin_bottom = 73.0
 
 [node name="ok" type="Button" parent="ColorRect/Center/V/H"]
 unique_name_in_owner = true
-margin_right = 119.0
-margin_bottom = 25.0
+margin_right = 123.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 disabled = true
@@ -54,9 +52,9 @@ text = "ok"
 
 [node name="cancel" type="Button" parent="ColorRect/Center/V/H"]
 unique_name_in_owner = true
-margin_left = 130.0
+margin_left = 127.0
 margin_right = 250.0
-margin_bottom = 25.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 text = "cancel"

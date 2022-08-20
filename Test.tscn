@@ -1,21 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://addons/remap/main.theme" type="Theme" id=1]
-[ext_resource path="res://addons/remap/InteractiveActionLabel.gd" type="Script" id=2]
 [ext_resource path="res://Test.gd" type="Script" id=3]
+[ext_resource path="res://addons/remap/ActionLabel.gd" type="Script" id=4]
 
 [node name="Test" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
-[node name="InteractiveActionLabel" type="HBoxContainer" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 4.0
-margin_bottom = 15.0
-script = ExtResource( 2 )
-_name = "right"
-action = "ui_right"
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 42.0
+margin_right = 316.0
+margin_bottom = 75.0
+script = ExtResource( 4 )
+_name = "lef"
+action = "ui_left"
+icon_size = Vector2( 10, 10 )
