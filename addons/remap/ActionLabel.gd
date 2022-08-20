@@ -9,15 +9,17 @@ export(bool) var override_font := true
 
 var icons := ActionIcons.new()
 var name_label := Label.new()
+var name_label_bg := PanelContainer.new()
 
 
 func _ready() -> void:
 	SaveLoadUtils.create_dir(SaveLoadUtils.dir)
 	SaveLoadUtils.load2inputmap(action)
+	add_child(name_label_bg)
+	name_label_bg.add_child(name_label)
 	name_label.text = _name
 	name_label.valign = Label.VALIGN_CENTER
 	name_label.align = Label.ALIGN_CENTER
-	add_child(name_label)
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	add_child(spacer)
