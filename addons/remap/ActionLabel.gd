@@ -18,6 +18,7 @@ func _ready() -> void:
 	add_child(name_label_bg)
 	name_label_bg.add_child(name_label)
 	name_label.text = _name
+	name_label.rect_min_size = icon_size
 	name_label.valign = Label.VALIGN_CENTER
 	name_label.align = Label.ALIGN_CENTER
 	var spacer := Control.new()

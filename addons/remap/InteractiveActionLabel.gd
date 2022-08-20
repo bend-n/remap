@@ -7,14 +7,16 @@ class_name InteractiveActionLabel
 # - free itself when one of them is emitted
 export(PackedScene) var popup = preload("./KeySelector.tscn")
 
-var clear := Button.new()
+var clear: Button
 
 export(bool) var clear_button := true
+export(String) var clear_text := "✗"
 
 
 func _ready():
 	if clear_button:
-		clear.text = "✗"
+		clear = Button.new()
+		clear.text = clear_text
 		clear.connect("pressed", self, "clear")
 		clear.size_flags_vertical = SIZE_EXPAND_FILL
 		clear.rect_min_size = icon_size
