@@ -1,19 +1,34 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://bueg0v45altvi"]
 
-[ext_resource path="res://Test.gd" type="Script" id=3]
-[ext_resource path="res://addons/remap/ActionLabel.gd" type="Script" id=4]
+[ext_resource type="Script" path="res://addons/remap/RemapButton.gd" id="2_dj1bu"]
+[ext_resource type="Script" path="res://addons/remap/ActionLabel.gd" id="4"]
 
-[node name="Test" type="Control"]
+[node name="Test" type="CenterContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 5.0
-margin_top = 42.0
-margin_right = 316.0
-margin_bottom = 75.0
-script = ExtResource( 4 )
-_name = "   lef"
+[node name="v" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 576.0
+offset_top = 322.0
+offset_right = 576.0
+offset_bottom = 326.0
+
+[node name="actionlabel" type="HBoxContainer" parent="v"]
+layout_mode = 2
+script = ExtResource("4")
+_name = "left"
 action = "ui_left"
-icon_size = Vector2( 10, 10 )
+continuous_updating = true
+
+[node name="remapbutton" type="HBoxContainer" parent="v"]
+layout_mode = 2
+offset_top = 4.0
+offset_bottom = 4.0
+script = ExtResource("2_dj1bu")
+_name = "left"
+action = "ui_left"
+continuous_updating = true

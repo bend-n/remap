@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://ck4uai24afp11"
+path="res://.godot/imported/PromptFont.ttf-7aa5ceab00464524ed719deff6b514eb.fontdata"
+
+[deps]
+
+source_file="res://addons/remap/PromptFont.ttf"
+dest_files=["res://.godot/imported/PromptFont.ttf-7aa5ceab00464524ed719deff6b514eb.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+force_autohinter=false
+hinting=2
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration"
+}]
+language_support={}
+script_support={}
+opentype_features={}
