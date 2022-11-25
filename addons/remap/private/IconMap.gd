@@ -100,7 +100,7 @@ const NINTENDO_BUTTON_MAP := {
 	JOY_BUTTON_X: "↥",
 	JOY_BUTTON_Y: "↤",
 	JOY_BUTTON_BACK: "⇽",
-	JOY_BUTTON_GUIDE: "❓",  # there is no joy_button_guide on switch
+	JOY_BUTTON_GUIDE: "❓", # there is no joy_button_guide on switch
 	JOY_BUTTON_START: "⇾",
 }
 
@@ -136,17 +136,17 @@ const mouse_button_map := {
 }
 
 
-## Tries to find the icon for a physical key [param scancode].
-static func check_scn(scancode: int, __r := false) -> String:
-	if KEY_MAP.has(scancode):
-		return KEY_MAP[scancode]
-	var kcs := OS.get_keycode_string(scancode)
+## Tries to find the icon for a [param keycode].
+static func check_key(keycode: int, physical: int, __r := false) -> String:
+	if KEY_MAP.has(keycode):
+		return KEY_MAP[keycode]
+	var kcs := OS.get_keycode_string(keycode)
 	if kcs:
 		return kcs
 	if !__r:
-		var fall := check_scn(DisplayServer.keyboard_get_keycode_from_physical(scancode), true)
-		if fall:
-			return fall
+		var fallback := check_key(DisplayServer.keyboard_get_keycode_from_physical(physical), true)
+		if fallback:
+			return fallback
 	return ""
 
 
@@ -168,7 +168,7 @@ static func get_device(raw_name: String) -> int:
 ## Gets the icon for a input[param e]vent. Returns [code]?[/code] on failure.
 static func get_icon(e: InputEvent) -> String:
 	if e is InputEventKey:
-		var res := check_scn(e.physical_keycode)
+		var res := check_key(e.keycode, e.physical_keycode)
 		if res:
 			return res
 	elif e is InputEventJoypadButton:
@@ -181,9 +181,9 @@ static func get_icon(e: InputEvent) -> String:
 				PADS.NINTENDO:
 					return NINTENDO_BUTTON_MAP[e.button_index]
 				PADS.GENERIC:
-					return XBOX_BUTTON_MAP[e.button_index]  # fallback to xbox
-		elif JOYPAD_BUTTON_MAP.has(e.button_index):
-			return JOYPAD_BUTTON_MAP[e.button_index]
+					return XBOX_BUTTON_MAP[e.button_index] # fallback to xbox
+	elif JOYPAD_BUTTON_MAP.has(e.button_index):
+		return JOYPAD_BUTTON_MAP[e.button_index]
 	elif e is InputEventJoypadMotion:
 		if JOYSTICK_MAP[int(e.axis_value)].has(e.axis):
 			return JOYSTICK_MAP[int(e.axis_value)][e.axis]
@@ -192,4 +192,5 @@ static func get_icon(e: InputEvent) -> String:
 	elif e is InputEventMouseButton:
 		if mouse_button_map.has(e.button_index):
 			return mouse_button_map[e.button_index]
+	push_error("Unable to map ", e)
 	return "❓"
