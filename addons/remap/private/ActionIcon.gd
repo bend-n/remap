@@ -12,6 +12,5 @@ func _init(text: String, min_size: Vector2, font: Font, font_size: int) -> void:
     add_child(label)
     label.custom_minimum_size = min_size
     label.text = text
-    if font:
-        label.add_theme_font_override("font", font)
-        label.add_theme_font_size_override("font_size", font_size)
+    label.add_theme_font_override("font", font)
+    label.add_theme_font_size_override("font_size", font_size)

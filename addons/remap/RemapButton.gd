@@ -44,6 +44,7 @@ var button := Button.new()
 var clear: Button
 
 func _ready() -> void:
+  assert(font != null)
   set_process(continuous_updating)
   set_process_input(false)
   custom_minimum_size = icon_size
@@ -55,10 +56,10 @@ func _ready() -> void:
     clear.pressed.connect(clear_mappings)
     clear.size_flags_vertical = SIZE_EXPAND_FILL
     clear.custom_minimum_size = icon_size
-    add_child(clear)
+    clear.add_theme_font_override("font", font)
+    clear.add_theme_font_size_override("font_size", font_size)
     clear.visible = InputMap.action_get_events(action).size() > 0
-    if font:
-      clear.add_theme_font_override("font", font)
+    add_child(clear)
   button.text = _name
   button.custom_minimum_size = icon_size
   button.size_flags_vertical = SIZE_EXPAND_FILL

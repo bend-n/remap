@@ -36,6 +36,7 @@ var name_label_bg := PanelContainer.new()
 
 
 func _ready() -> void:
+  assert(font != null)
   set_process(continuous_updating)
   DirAccess.make_dir_absolute(SaveLoadUtils.dir)
   SaveLoadUtils.load_action_to_inputmap(action)
