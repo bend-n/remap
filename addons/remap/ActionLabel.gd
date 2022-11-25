@@ -19,6 +19,9 @@ const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 ## The font to use. Only change if your font has the [url=https://github.com/Shinmera/promptfont/blob/c27797b49dee560e3ea3eaa40e87f9a7f35e8913/glyphs.json]necessary glyphs[/url].
 @export var font: Font = preload("./PromptFont.ttf")
 
+## The font size
+@export var font_size: int = 16
+
 ## Wether to update continuously. Usefull if you have RemapButtons on this action.
 @export var continuous_updating := false
 
@@ -44,7 +47,7 @@ func _ready() -> void:
   name_label.horizontal_alignment = ALIGNMENT_CENTER
   var spacer := Control.new()
   spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  icons = ActionIcons.new(action, icon_size, font)
+  icons = ActionIcons.new(action, icon_size, font, font_size)
   add_child(spacer)
   add_child(icons)
   if not continuous_updating:

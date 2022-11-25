@@ -25,7 +25,10 @@ const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 ## The minimum ActionIcon size.
 @export var icon_size := Vector2(20, 20)
 
-## The font to use.
+## The font size
+@export var font_size: int = 16
+
+## The font to use. Only change if your font has the [url=https://github.com/Shinmera/promptfont/blob/c27797b49dee560e3ea3eaa40e87f9a7f35e8913/glyphs.json]necessary glyphs[/url].
 @export var font: Font = preload("./PromptFont.ttf")
 
 ## Wether to update continuously. Usefull if you have multple RemapButtons following this action.
@@ -62,7 +65,7 @@ func _ready() -> void:
   button.pressed.connect(_pressed)
   var spacer := Control.new()
   spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  icons = ActionIcons.new(action, icon_size, font)
+  icons = ActionIcons.new(action, icon_size, font, font_size)
   add_child(button)
   add_child(spacer)
   add_child(icons)

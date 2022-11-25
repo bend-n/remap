@@ -1,6 +1,6 @@
 {
   "name": "@bendn/remap",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "godot input remapping",
   "main": "InteractiveActionLabel.gd",
   "scripts": {
