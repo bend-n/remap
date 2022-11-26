@@ -23,6 +23,7 @@ const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 @export var font_size: int = 16
 
 ## Wether to update continuously. Usefull if you have RemapButtons on this action.
+## Also possible to manually call [method update].
 @export var continuous_updating := false
 
 ## The ActionIcons object to use. This is a required internal node.
@@ -52,8 +53,12 @@ func _ready() -> void:
   add_child(spacer)
   add_child(icons)
   if not continuous_updating:
-    icons.update()
+    update()
 
 
 func _process(_delta: float) -> void:
+  update()
+
+## Updates the icon visuals.
+func update() -> void:
   icons.update()

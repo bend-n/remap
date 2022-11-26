@@ -31,7 +31,10 @@ const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 ## The font to use. Only change if your font has the [url=https://github.com/Shinmera/promptfont/blob/c27797b49dee560e3ea3eaa40e87f9a7f35e8913/glyphs.json]necessary glyphs[/url].
 @export var font: Font = preload("./PromptFont.ttf")
 
-## Wether to update continuously. Usefull if you have multple RemapButtons following this action.
+## Wether to update continuously. 
+## Usefull if you have multple RemapButtons following this action.
+## If you need this for a different reason, eg resetting all inputs to the default ([code]InputMap.load_from_project_settings[/code]),
+## it is more efficient to manually call [method update] and [method save].
 @export var continuous_updating := false
 
 ## The internal ActionIcons object. This is a required internal node.
@@ -71,7 +74,7 @@ func _ready() -> void:
   add_child(spacer)
   add_child(icons)
   if not continuous_updating:
-    icons.update()
+    update()
 
 func _pressed():
   button.text = prompt_text
@@ -98,9 +101,8 @@ func _input(event: InputEvent) -> void:
   get_viewport().set_input_as_handled()
   RemapUtilities.add_action(action, event)
   if not continuous_updating:
-    icons.update()
-  SaveLoadUtils.action_to_file(action)
-  clear.show()
+    update()
+  save()
   button.text = _name
   set_process_input(false)
 
@@ -112,4 +114,13 @@ func clear_mappings():
   clear.hide()
 
 func _process(_delta: float) -> void:
+  update()
+
+## Saves the rebind data to a file. Only necessary if manually changing the [InputMap].
+func save():
+  SaveLoadUtils.action_to_file(action)
+  clear.visible = InputMap.action_get_events(action).size() > 0
+
+## Updates the icon visuals.
+func update() -> void:
   icons.update()
