@@ -71,12 +71,23 @@ const JOYPAD_BUTTON_MAP := {
 	JOY_BUTTON_DPAD_DOWN: "↡",
 }
 
-## Xbox button map.
-const XBOX_BUTTON_MAP := {
+## Generic joypad button mappings.
+const GENERIC_BUTTON_MAP := {
 	JOY_BUTTON_A: "↧",
 	JOY_BUTTON_B: "↦",
 	JOY_BUTTON_X: "↤",
 	JOY_BUTTON_Y: "↥",
+	JOY_BUTTON_BACK: "❓",
+	JOY_BUTTON_GUIDE: "❓",
+	JOY_BUTTON_START: "❓",
+}
+
+## Xbox button map.
+const XBOX_BUTTON_MAP := {
+	JOY_BUTTON_A: "⇓",
+	JOY_BUTTON_B: "⇒",
+	JOY_BUTTON_X: "⇐",
+	JOY_BUTTON_Y: "⇑",
 	JOY_BUTTON_BACK: "⇺",
 	JOY_BUTTON_GUIDE: "",
 	JOY_BUTTON_START: "⇻",
@@ -95,10 +106,10 @@ const PLAYSTATION_BUTTON_MAP := {
 
 ## Nintendo switch button map.
 const NINTENDO_BUTTON_MAP := {
-	JOY_BUTTON_A: "↥",
-	JOY_BUTTON_B: "↧",
+	JOY_BUTTON_A: "⇒",
+	JOY_BUTTON_B: "⇓",
 	JOY_BUTTON_X: "↥",
-	JOY_BUTTON_Y: "↤",
+	JOY_BUTTON_Y: "⇐",
 	JOY_BUTTON_BACK: "⇽",
 	JOY_BUTTON_GUIDE: "❓", # there is no joy_button_guide on switch
 	JOY_BUTTON_START: "⇾",
@@ -110,7 +121,7 @@ const JOYSTICK_MAP := {
 	-1:
 	{
 		JOY_AXIS_LEFT_X: "↼",
-		JOY_AXIS_LEFT_Y: "⇈",
+		JOY_AXIS_LEFT_Y: "↾",
 		JOY_AXIS_RIGHT_X: "↽",
 		JOY_AXIS_RIGHT_Y: "↿",
 	},
@@ -181,7 +192,7 @@ static func get_icon(e: InputEvent) -> String:
 				PADS.NINTENDO:
 					return NINTENDO_BUTTON_MAP[e.button_index]
 				PADS.GENERIC:
-					return XBOX_BUTTON_MAP[e.button_index] # fallback to xbox
+					return GENERIC_BUTTON_MAP[e.button_index]
 		elif JOYPAD_BUTTON_MAP.has(e.button_index):
 			return JOYPAD_BUTTON_MAP[e.button_index]
 	elif e is InputEventJoypadMotion:
