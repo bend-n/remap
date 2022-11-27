@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dsm86lefv8c1e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtgkm"]
+bg_color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.388235, 0.388235, 0.388235, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="SystemFont" id="SystemFont_hsu7u"]
+
+[resource]
+default_font = SubResource("SystemFont_hsu7u")
+default_font_size = 30
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_rtgkm")
