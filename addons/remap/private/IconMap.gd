@@ -182,8 +182,8 @@ static func get_icon(e: InputEvent) -> String:
 					return NINTENDO_BUTTON_MAP[e.button_index]
 				PADS.GENERIC:
 					return XBOX_BUTTON_MAP[e.button_index] # fallback to xbox
-	elif JOYPAD_BUTTON_MAP.has(e.button_index):
-		return JOYPAD_BUTTON_MAP[e.button_index]
+		elif JOYPAD_BUTTON_MAP.has(e.button_index):
+			return JOYPAD_BUTTON_MAP[e.button_index]
 	elif e is InputEventJoypadMotion:
 		if JOYSTICK_MAP[int(e.axis_value)].has(e.axis):
 			return JOYSTICK_MAP[int(e.axis_value)][e.axis]
