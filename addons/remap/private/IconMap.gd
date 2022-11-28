@@ -63,12 +63,14 @@ enum PADS { XBOX, PLAYSTATION, NINTENDO, GENERIC }
 
 ## Generic joypad button mappings.
 const JOYPAD_BUTTON_MAP := {
+	JOY_BUTTON_LEFT_STICK: "↺", # push left stick
+	JOY_BUTTON_RIGHT_STICK: "↻", # push rs
 	JOY_BUTTON_LEFT_SHOULDER: "↘",
 	JOY_BUTTON_RIGHT_SHOULDER: "↙",
-	JOY_BUTTON_DPAD_LEFT: "↞",
-	JOY_BUTTON_DPAD_RIGHT: "↠",
 	JOY_BUTTON_DPAD_UP: "↟",
 	JOY_BUTTON_DPAD_DOWN: "↡",
+	JOY_BUTTON_DPAD_LEFT: "↞",
+	JOY_BUTTON_DPAD_RIGHT: "↠",
 }
 
 ## Generic joypad button mappings.
