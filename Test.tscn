@@ -12,28 +12,33 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cy8qq")
 
-[node name="v" type="VBoxContainer" parent="."]
+[node name="v" type="GridContainer" parent="."]
 layout_mode = 2
-offset_left = 576.0
-offset_top = 322.0
-offset_right = 576.0
-offset_bottom = 326.0
+offset_left = 474.0
+offset_top = 274.0
+offset_right = 678.0
+offset_bottom = 374.0
+columns = 5
 
 [node name="actionlabel" type="HBoxContainer" parent="v"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
 script = ExtResource("4")
 _name = "left"
-action = "ui_left"
+action = "input"
 icon_size = Vector2(80, 80)
 font_size = 50
-continuous_updating = true
 
 [node name="remapbutton" type="HBoxContainer" parent="v"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_top = 4.0
-offset_bottom = 4.0
+offset_left = 104.0
+offset_right = 204.0
+offset_bottom = 100.0
 script = ExtResource("2_dj1bu")
 _name = "left"
-action = "ui_left"
+action = "input"
 icon_size = Vector2(80, 80)
 font_size = 50

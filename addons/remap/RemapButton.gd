@@ -25,17 +25,26 @@ const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 ## The minimum ActionIcon size.
 @export var icon_size := Vector2(20, 20)
 
-## The font size
-@export var font_size: int = 16
-
 ## The font to use. Only change if your font has the [url=https://github.com/Shinmera/promptfont/blob/c27797b49dee560e3ea3eaa40e87f9a7f35e8913/glyphs.json]necessary glyphs[/url].
 @export var font: Font = preload("./PromptFont.ttf")
+
+## The font size. See also [member font]
+@export var font_size: int = 16
 
 ## Wether to update continuously. 
 ## Usefull if you have multple RemapButtons following this action.
 ## If you need this for a different reason, eg resetting all inputs to the default ([code]InputMap.load_from_project_settings[/code]),
 ## it is more efficient to manually call [method update] and [method save].
 @export var continuous_updating := false
+
+
+## The device the input is mapped to. Set to -2 to disable.
+## -1 = all devices = player1 maps button a to jump. player2 presses a and player1 jumps. (good for singleplayer)
+## 0 = device 0. player1 maps button a to jump, player0 presses a and player0 jumps. (good when you explicitly state which player its for)
+## -2 = player1 maps button a to jump, player1 presses jump and player1 jumps.
+## Make sure that you set your inputs in the editor `InputMap` correctly, or players will be able to have two icons of the same type on one action.
+@export var device := -2
+
 
 ## The internal ActionIcons object. This is a required internal node.
 var icons: ActionIcons = null
@@ -48,7 +57,6 @@ var clear: Button
 
 func _ready() -> void:
   assert(font != null)
-  set_process(continuous_updating)
   set_process_input(false)
   custom_minimum_size = icon_size
   DirAccess.make_dir_absolute(SaveLoadUtils.dir)
@@ -69,12 +77,10 @@ func _ready() -> void:
   button.pressed.connect(_pressed)
   var spacer := Control.new()
   spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  icons = ActionIcons.new(action, icon_size, font, font_size)
+  icons = ActionIcons.new(action, icon_size, font, font_size, continuous_updating)
   add_child(button)
   add_child(spacer)
   add_child(icons)
-  if not continuous_updating:
-    update()
 
 func _pressed():
   button.text = prompt_text
@@ -99,6 +105,8 @@ func _input(event: InputEvent) -> void:
   if event is InputEventJoypadMotion:
     event.axis_value = sign(event.axis_value)
   get_viewport().set_input_as_handled()
+  if device != -2:
+    event.device = device
   RemapUtilities.add_action(action, event)
   if not continuous_updating:
     update()
@@ -109,12 +117,10 @@ func _input(event: InputEvent) -> void:
 ## Clears the mappings for this action.
 func clear_mappings():
   RemapUtilities.clear_mappings(action)
-  icons.update()
+  if not continuous_updating:
+    icons.update()
   SaveLoadUtils.action_to_file(action)
   clear.hide()
-
-func _process(_delta: float) -> void:
-  update()
 
 ## Saves the rebind data to a file. Only necessary if manually changing the [InputMap].
 func save():
@@ -123,4 +129,7 @@ func save():
 
 ## Updates the icon visuals.
 func update() -> void:
-  icons.update()
+  if continuous_updating:
+    push_error("Continuous updating set, manually calling update() pointless.")
+    return
+  icons.update(true)

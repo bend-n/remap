@@ -77,9 +77,9 @@ const GENERIC_BUTTON_MAP := {
 	JOY_BUTTON_B: "↦",
 	JOY_BUTTON_X: "↤",
 	JOY_BUTTON_Y: "↥",
-	JOY_BUTTON_BACK: "❓",
-	JOY_BUTTON_GUIDE: "❓",
-	JOY_BUTTON_START: "❓",
+	JOY_BUTTON_BACK: "back",
+	JOY_BUTTON_GUIDE: "guide",
+	JOY_BUTTON_START: "start",
 }
 
 ## Xbox button map.
@@ -176,15 +176,40 @@ static func get_device(raw_name: String) -> int:
 			return PADS.GENERIC
 
 
+## Puts all the connected joypads into a array. ifInput.get_connected_joypads() == [0, 1, 2], this will return [[constant GENERIC], [constant XBOX], [constant XBOX]].
+## See also [method get_connected_joypads_type].
+static func get_connected_joypads() -> PackedInt32Array:
+	var arr: PackedInt32Array = []
+	for device in Input.get_connected_joypads():
+		var raw_name := Input.get_joy_name(device)
+		if raw_name == "HTIX5288:00 0911:5288 Touchpad":
+			continue
+		arr.append(get_device(raw_name))
+	return arr
+
+
+## Looks at all the connected joypads, and checks if their all the same type.
+## If so, returns that type.
+## Otherwise, returns PADS.[constant GENERIC].
+static func get_connected_joypads_type() -> int:
+	var pads := get_connected_joypads()
+	if pads.size() == 0:
+		return PADS.GENERIC
+	for pad in pads:
+		if pad != pads[0]:
+			return PADS.GENERIC
+	return pads[0]
+
+
 ## Gets the icon for a input[param e]vent. Returns [code]?[/code] on failure.
-static func get_icon(e: InputEvent) -> String:
+static func get_icon(e: InputEvent, connected_joypads_type := get_connected_joypads_type()) -> String:
 	if e is InputEventKey:
 		var res := check_key(e.keycode, e.physical_keycode)
 		if res:
 			return res
 	elif e is InputEventJoypadButton:
 		if e.button_index < 7:
-			match get_device(Input.get_joy_name(e.device)):
+			match connected_joypads_type:
 				PADS.XBOX:
 					return XBOX_BUTTON_MAP[e.button_index]
 				PADS.PLAYSTATION:
