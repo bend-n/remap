@@ -88,8 +88,7 @@ func _pressed():
 
 func _input(event: InputEvent) -> void:
   if (
-      not event.is_pressed() 
-      or event in [InputEventMouseMotion, InputEventScreenDrag]
+      not event.is_pressed()
       or (
         (event is InputEventJoypadMotion or event is InputEventJoypadButton) and
         Input.get_joy_name(event.device) == "HTIX5288:00 0911:5288 Touchpad" # work around https://github.com/godotengine/godot/issues/69153
@@ -105,7 +104,7 @@ func _input(event: InputEvent) -> void:
   if event is InputEventJoypadMotion:
     event.axis_value = sign(event.axis_value)
   get_viewport().set_input_as_handled()
-  if device != -2:
+  if device != -2 and not event is InputEventKey: # for some reason keys dont have devices, guess you cant connect multiple keyboards smh
     event.device = device
   RemapUtilities.add_action(action, event)
   if not continuous_updating:
