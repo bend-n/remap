@@ -176,6 +176,7 @@ static func get_device(raw_name: String) -> int:
 			return PADS.NINTENDO
 		_:
 			return PADS.GENERIC
+	return PADS.GENERIC
 
 
 ## Puts all the connected joypads into a array. ifInput.get_connected_joypads() == [0, 1, 2], this will return [[constant GENERIC], [constant XBOX], [constant XBOX]].
