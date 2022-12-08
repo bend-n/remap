@@ -1,4 +1,4 @@
-# Input remapping tool
+# RemapTools
 
 [![version](https://img.shields.io/badge/4.x-blue?logo=godot-engine&logoColor=white&label=godot&style=for-the-badge)](https://godotengine.org "Made with godot")
 [![package](https://img.shields.io/npm/v/@bendn/remap?label=version&style=for-the-badge)](https://www.npmjs.com/package/@bendn/remap)
@@ -8,7 +8,8 @@ A tool that allows the remapping of `InputMap` actions in godot4.
 
 ## Features
 
-[![image](https://raw.githubusercontent.com/bend-n/remap/main/.github/screen.png)](_blank "Some themage required")
+[![image](https://raw.githubusercontent.com/bend-n/remap/main/.github/screen.png)](_blank "Key, Mouse support")<br>
+[![image](https://raw.githubusercontent.com/bend-n/remap/main/.github/screen1.png)](_blank "Gamepad support")
 
 Supports:
 
@@ -16,7 +17,7 @@ Supports:
   - Xbox
   - Nintendo switch
   - Playstation
-  - Fallback icons for a generic controller.
+  - Fallback icons for a generic controller
 - Keyboard
 - Mouse
 
@@ -27,11 +28,10 @@ Supports:
 ## Usage
 
 ```gdscript
-const RemapButton = preload("res://addons/remap/RemapButton.gd")
-var label = RemapButton.new()
-label.action = "ui_left"
-label._name = "left"
-add_child(label)
+var button = RemapButton.new()
+button.action = "ui_left"
+button._name = "left"
+add_child(button)
 ```
 
 ## Installation
