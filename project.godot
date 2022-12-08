@@ -8,6 +8,22 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "HBoxContainer",
+"class": &"ActionLabel",
+"language": &"GDScript",
+"path": "res://addons/remap/ActionLabel.gd"
+}, {
+"base": "HBoxContainer",
+"class": &"RemapButton",
+"language": &"GDScript",
+"path": "res://addons/remap/RemapButton.gd"
+}]
+_global_script_class_icons={
+"ActionLabel": "res://addons/remap/icons/action_label.svg",
+"RemapButton": "res://addons/remap/icons/remap_button.svg"
+}
+
 [application]
 
 config/name="test"

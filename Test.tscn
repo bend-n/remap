@@ -14,17 +14,11 @@ theme = ExtResource("1_cy8qq")
 
 [node name="v" type="GridContainer" parent="."]
 layout_mode = 2
-offset_left = 474.0
-offset_top = 274.0
-offset_right = 678.0
-offset_bottom = 374.0
 columns = 5
 
 [node name="actionlabel" type="HBoxContainer" parent="v"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_right = 100.0
-offset_bottom = 100.0
 script = ExtResource("4")
 _name = "left"
 action = "input"
@@ -34,9 +28,6 @@ font_size = 50
 [node name="remapbutton" type="HBoxContainer" parent="v"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_left = 104.0
-offset_right = 204.0
-offset_bottom = 100.0
 script = ExtResource("2_dj1bu")
 _name = "left"
 action = "input"

@@ -1,6 +1,7 @@
 ## Provides a button that allows remapping [InputEventAction]s.
 
 extends HBoxContainer
+class_name RemapButton
 @icon("./icons/remap_button.svg")
 
 const ActionIcons := preload("./private/ActionIcons.gd")
