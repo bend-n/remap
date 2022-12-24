@@ -36,47 +36,39 @@ add_child(button)
 ## Installation
 
 <details open>
-  <summary>With the Godot Package Manager</summary>
+  <summary><h3>With the Godot Package Manager</h3></summary>
 
-> **Note** The information here may not be up to date. For most up to date information, see [you-win/gpm#using-packages](https://github.com/you-win/godot-package-manager#using-packages-quickstart)
+> **Note** The information here may not be up to date. For most up to date information, see [gpm#using-packages](https://github.com/godot-package-manager#using-packages-quickstart)
 
 > **Warning** This addon is not compatible with being used as a sub addon(a addon to another addon), as it uses classes.
 
-This addon is installable via the [gpm](https://github.com/you-win/godot-package-manager).
-To install, create a `godot.package` file.
+This addon is installable via the [gpm](https://github.com/godot-package-manager).
+To install, create a [`godot.package`](https://github.com/godot-package-manager#godotpackage) file.
 It should look something like this.
 
-```json
-{
-  "packages": {
-    "@bendn/remap": "1.0.0"
-  }
+```jsonc
+packages: {
+  @bendn/remap: 5.0.5
 }
 ```
 
-Change `1.0.0` to whatever version you want to use.
-Then, clone the repo(`git clone --depth 1 https://github.com/you-win/godot-package-manager`),
-move the `./godot-package-manager/addons/godot-package-manager` folder to your `addons` folder(`mkdir addons && mv ./godot-package-manager/addons/godot-package-manager adons/`).
+Change `5.0.5` to whatever version you want to use, versions < 4 = godot3.x.
 
-Downloading addons:
+Then download the [latest version](https://github.com/godot-package-manager/cli/releases/latest/download/godot-package-manager) of the [cli](https://github.com/godot-package-manager/cli#installation), move the executable to your `PATH` as `gpm` (`wget "https://github.com/godot-package-manager/cli/releases/latest/download/godot-package-manager" -O /bin/gpm`).
 
-- For godot4:
-  Open the terminal, and run this:
+And finally, to download[^1]:
 
-  ```bash
-  godot --headless -s ./addons/godot-package-manager/cli.gd --update
-  ```
-
-  Ignore any errors produced, as long as it says "Finished".
-
-- For godot3:
-  Open the godot editor, and click on the godot-package-manager tab, then press update.
+```bash
+gpm --update # in the same dir as your godot.package
+```
 
 </details>
 <details>
-  <summary>Manually</summary>
+  <summary><h3>Manually<h3></summary>
 
-- Clone the repo(`git clone --depth 1 https://github.com/bend-n/remap`).
-- Move the `remap/addons/remap` folder into your `addons` folder(`mkdir addons && mv remap/addons/remap addons/`)
+- Download the repo (`wget https://github.com/godot-package-manager/cli/archive/refs/heads/main.zip && unzip main.zip`).
+- Move the `remap-main/addons/remap` folder into your `addons` folder (`mkdir addons && mv remap-main/addons/remap addons/`)
 
 </details>
+
+[^1]: [Usage instructions for the cli](https://github.com/godot-package-manager/cli#usage)
