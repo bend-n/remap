@@ -54,7 +54,7 @@ packages: {
 
 Change `5.0.5` to whatever version you want to use, versions < 4 = godot3.x.
 
-Then download the [latest version](https://github.com/godot-package-manager/cli/releases/latest/download/godot-package-manager) of the [cli](https://github.com/godot-package-manager/cli#installation), move the executable to your `PATH` as `gpm` (`wget "https://github.com/godot-package-manager/cli/releases/latest/download/godot-package-manager" -O /bin/gpm`).
+Then download the [latest version](https://github.com/godot-package-manager/cli/releases/latest) of the [cli](https://github.com/godot-package-manager/cli#installation), move the executable to your `PATH` as `gpm` (`wget "https://github.com/godot-package-manager/cli/releases/latest/download/godot-package-manager.x86_64" -O /bin/gpm`).
 
 And finally, to download[^1]:
 
