@@ -1,8 +1,8 @@
 ## Provides a button that allows remapping [InputEventAction]s.
 
+@icon("./icons/remap_button.svg")
 extends HBoxContainer
 class_name RemapButton
-@icon("./icons/remap_button.svg")
 
 const ActionIcons := preload("./private/ActionIcons.gd")
 const RemapUtilities := preload("./private/RemapUtilities.gd")
@@ -32,7 +32,7 @@ const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 ## The font size. See also [member font]
 @export var font_size: int = 16
 
-## Wether to update continuously. 
+## Wether to update continuously.
 ## Usefull if you have multple RemapButtons following this action.
 ## If you need this for a different reason, eg resetting all inputs to the default ([code]InputMap.load_from_project_settings[/code]),
 ## it is more efficient to manually call [method update] and [method save].

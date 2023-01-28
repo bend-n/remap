@@ -1,8 +1,8 @@
 ## A action label. Displays the inputevents for a action, with a label.
 
+@icon("./icons/action_label.svg")
 extends HBoxContainer
 class_name ActionLabel
-@icon("./icons/action_label.svg")
 
 const IconMap := preload("./private/IconMap.gd")
 const ActionIcons := preload("./private/ActionIcons.gd")

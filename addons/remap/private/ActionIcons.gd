@@ -1,7 +1,7 @@
 ## Displays multiple ActionIcons.
 
-extends HBoxContainer
 @icon("../icons/action_icons.svg")
+extends HBoxContainer
 
 const ActionIcon := preload("./ActionIcon.gd")
 const IconMap := preload("./IconMap.gd")

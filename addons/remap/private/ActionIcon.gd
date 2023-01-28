@@ -1,7 +1,7 @@
 ## A ActionIcon used by ActionIcons.
 
-extends PanelContainer
 @icon("../icons/action_icon.svg")
+extends PanelContainer
 
 ## The inner label.
 var label := Label.new()
