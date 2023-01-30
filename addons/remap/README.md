@@ -59,14 +59,14 @@ Then download the [latest version](https://github.com/godot-package-manager/cli/
 And finally, to download[^1]:
 
 ```bash
-gpm --update # in the same dir as your godot.package
+gpm update # in the same dir as your godot.package
 ```
 
 </details>
 <details>
   <summary><h3>Manually<h3></summary>
 
-- Download the repo (`wget https://github.com/godot-package-manager/cli/archive/refs/heads/main.zip && unzip main.zip`).
+- Download the repo (`wget https://github.com/bend-n/remap/archive/refs/heads/main.zip && unzip main.zip`).
 - Move the `remap-main/addons/remap` folder into your `addons` folder (`mkdir addons && mv remap-main/addons/remap addons/`)
 
 </details>
