@@ -17,6 +17,6 @@ static func add_action(action: String, event: InputEvent) -> void:
 static func is_valid_action(e: InputEvent) -> bool:
 	var good_events := [InputEventKey, InputEventMouseButton, InputEventJoypadButton, InputEventJoypadMotion]
 	for g_e in good_events:
-		if e is g_e:
+		if is_instance_of(e, g_e):
 			return true
 	return false
