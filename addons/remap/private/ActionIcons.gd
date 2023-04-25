@@ -64,4 +64,4 @@ func update(force := false):
 
     # set the children
     for i in acts.size():
-      get_child(i).set_text(IconMap.get_icon(acts[i], current_connected_joypads_type))
+      get_child(i).set_text(IconMap.string_action_with_mods(acts[i]))

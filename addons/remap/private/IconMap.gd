@@ -55,7 +55,8 @@ const KEY_MAP := {
 	KEY_BRACERIGHT: "}",
 	KEY_APOSTROPHE: "'",
 	KEY_MENU: "⇻",
-	KEY_END: "␸"
+	KEY_END: "␸",
+	KEY_AT: "@",
 }
 
 ## Pad enum. Used to decide which button set to use.
@@ -233,3 +234,27 @@ static func get_icon(e: InputEvent, connected_joypads_type := get_connected_joyp
 			return mouse_button_map[e.button_index]
 	push_error("Unable to map ", e)
 	return "❓"
+
+## Stringifies the modifiers.
+## Order: ctrl, shift, alt, meta
+static func get_modifiers(e: InputEventWithModifiers) -> PackedStringArray:
+	var mods: PackedStringArray = []
+	var mask := e.get_modifiers_mask()
+	# ignore key_modifier_mask, key_mask_kpad, and key_mask_group_swtich
+	if mask & KEY_MASK_CTRL:
+		mods.append(KEY_MAP[KEY_CTRL])
+	if mask & KEY_MASK_SHIFT:
+		mods.append(KEY_MAP[KEY_SHIFT])
+	if mask & KEY_MASK_ALT:
+		mods.append(KEY_MAP[KEY_ALT])
+	if mask & KEY_MASK_META:
+		mods.append(KEY_MAP[KEY_META])
+	return mods
+
+static func string_action_with_mods(e: InputEvent, connected_joypads_type := get_connected_joypads_type()) -> String:
+	var icon := IconMap.get_icon(e, connected_joypads_type)
+	if e is InputEventWithModifiers:
+		var mods := IconMap.get_modifiers(e)
+		if not mods.is_empty():
+			return " + ".join(mods) + " + " + icon
+	return icon

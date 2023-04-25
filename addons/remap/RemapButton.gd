@@ -87,16 +87,9 @@ func _pressed():
   set_process_input(true)
 
 func _input(event: InputEvent) -> void:
-  if (
-      not event.is_pressed()
-      or (
-        (event is InputEventJoypadMotion or event is InputEventJoypadButton) and
-        Input.get_joy_name(event.device) == "HTIX5288:00 0911:5288 Touchpad" # work around https://github.com/godotengine/godot/issues/69153
-      )
-    ):
+  if event.is_pressed() or not RemapUtilities.is_valid_action(event): # wait for release
     return
-
-  if event is InputEventKey and event.physical_keycode == KEY_ESCAPE or not RemapUtilities.is_valid_action(event):
+  if event is InputEventKey and event.physical_keycode == KEY_ESCAPE:
     get_viewport().set_input_as_handled()
     button.text = _name
     set_process_input(false)

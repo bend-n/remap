@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/action_label.svg-95462f1979e6b228dc8e5c5c198a
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
