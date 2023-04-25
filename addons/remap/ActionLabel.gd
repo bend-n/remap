@@ -4,8 +4,6 @@
 extends HBoxContainer
 class_name ActionLabel
 
-const IconMap := preload("./private/IconMap.gd")
-const ActionIcons := preload("./private/ActionIcons.gd")
 const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 
 ## The label text.
@@ -45,8 +43,8 @@ func _ready() -> void:
 	name_label_bg.add_child(name_label)
 	name_label.text = _name
 	name_label.custom_minimum_size = icon_size
-	name_label.vertical_alignment = ALIGNMENT_CENTER
-	name_label.horizontal_alignment = ALIGNMENT_CENTER
+	name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	icons = ActionIcons.new(action, icon_size, font, font_size, continuous_updating)

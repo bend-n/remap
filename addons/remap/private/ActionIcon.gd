@@ -2,14 +2,15 @@
 
 @icon("../icons/action_icon.svg")
 extends PanelContainer
+class_name ActionIcon
 
 ## The inner label.
 var label := Label.new()
 
 
 func _init(min_size: Vector2, font: Font, font_size: int) -> void:
-	label.horizontal_alignment = BoxContainer.ALIGNMENT_CENTER
-	label.vertical_alignment = BoxContainer.ALIGNMENT_CENTER
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	add_child(label)
 	label.custom_minimum_size = min_size
 	label.add_theme_font_override("font", font)

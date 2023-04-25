@@ -4,7 +4,6 @@
 extends HBoxContainer
 class_name RemapButton
 
-const ActionIcons := preload("./private/ActionIcons.gd")
 const RemapUtilities := preload("./private/RemapUtilities.gd")
 const SaveLoadUtils := preload("./private/SaveLoadUtils.gd")
 

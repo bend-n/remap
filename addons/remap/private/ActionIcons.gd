@@ -2,9 +2,7 @@
 
 @icon("../icons/action_icons.svg")
 extends HBoxContainer
-
-const ActionIcon := preload("./ActionIcon.gd")
-const IconMap := preload("./IconMap.gd")
+class_name ActionIcons
 
 ## The action to follow.
 var action: String

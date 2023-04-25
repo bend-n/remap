@@ -1,6 +1,7 @@
 ## Maps inputevents to a [url=https://shinmera.github.io/promptfont/]prompt font[/url] icon.
 
 extends RefCounted
+class_name IconMap
 
 ## The map for keys.
 const KEY_MAP := {
